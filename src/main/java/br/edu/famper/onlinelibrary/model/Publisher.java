@@ -15,4 +15,9 @@ public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
+
+    @Column(name = "name")
+    private String name;
+
+    private String book;
 }

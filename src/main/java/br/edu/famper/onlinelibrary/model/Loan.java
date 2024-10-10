@@ -15,4 +15,8 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
+
+    private String User;
+
+    private String Book;
 }
