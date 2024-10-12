@@ -16,6 +16,8 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
+    private Double unpaidDebt;
+
     private String User;
 
     private String Book;
