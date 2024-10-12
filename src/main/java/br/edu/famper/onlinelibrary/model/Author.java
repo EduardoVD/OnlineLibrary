@@ -18,8 +18,11 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "date_of_birth")
     private Calendar dateOfBirth;

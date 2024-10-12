@@ -3,6 +3,8 @@ package br.edu.famper.onlinelibrary.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Calendar;
+
 @Entity
 @Table(name = "book")
 @Getter
@@ -20,7 +22,7 @@ public class Book {
     private String title;
 
     @Column(name = "year_of_publication")
-    private Integer yearOfPublication;
+    private Calendar yearOfPublication;
 
     @Column(name = "price")
     private Double price;
