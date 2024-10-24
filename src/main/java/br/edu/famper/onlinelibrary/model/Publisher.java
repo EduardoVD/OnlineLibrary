@@ -1,7 +1,10 @@
 package br.edu.famper.onlinelibrary.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "publisher")
@@ -19,5 +22,14 @@ public class Publisher {
     @Column(name = "name")
     private String name;
 
-    private String book;
+    @OneToMany(mappedBy = "publisher",
+        targetEntity = Book.class,
+        fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Book> Books;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
 }
