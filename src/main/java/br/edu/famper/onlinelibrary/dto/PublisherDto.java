@@ -10,5 +10,5 @@ import lombok.*;
 public class PublisherDto {
 
     private String name;
-    private BookDto book;
+    private String publishedBook;
 }

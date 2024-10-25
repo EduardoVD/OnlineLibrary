@@ -1,7 +1,7 @@
 package br.edu.famper.onlinelibrary.controller;
 
-import br.edu.famper.onlinelibrary.dto.UserDto;
-import br.edu.famper.onlinelibrary.service.UserService;
+import br.edu.famper.onlinelibrary.dto.CustomerDto;
+import br.edu.famper.onlinelibrary.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +14,13 @@ import java.util.List;
 @RequestMapping("/onlineLibrary/user")
 @RequiredArgsConstructor
 @Slf4j
-public class UserController {
+public class CustomerController {
 
-    private final UserService userService;
+    private final CustomerService customerService;
 
     @GetMapping
-    public List<UserDto> getAllUsers() {
+    public List<CustomerDto> getAllUsers() {
         log.info("Searching For All Users");
-        return userService.getAllUsers();
+        return customerService.getAllUsers();
     }
 }

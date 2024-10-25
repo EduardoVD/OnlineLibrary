@@ -1,7 +1,7 @@
 package br.edu.famper.onlinelibrary.service;
 
-import br.edu.famper.onlinelibrary.dto.UserDto;
-import br.edu.famper.onlinelibrary.repository.UserRepository;
+import br.edu.famper.onlinelibrary.dto.CustomerDto;
+import br.edu.famper.onlinelibrary.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UserService {
+public class CustomerService {
 
     @Autowired
-    private UserRepository userRepository;
+    private CustomerRepository customerRepository;
 
-    public List<UserDto> getAllUsers() {
-        return userRepository
+    public List<CustomerDto> getAllUsers() {
+        return customerRepository
                 .findAll()
                 .stream()
-                .map(user -> UserDto
+                .map(user -> CustomerDto
                         .builder()
                         .name(user.getName())
                         .phone(user.getPhone())

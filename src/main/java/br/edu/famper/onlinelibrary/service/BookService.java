@@ -26,6 +26,7 @@ public class BookService {
                         .title(book.getTitle())
                         .yearOfPublication(book.getYearOfPublication())
                         .price(book.getPrice())
+                        .author(book.getAuthor())
                         .build()
                 )
                 .toList();

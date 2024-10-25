@@ -10,6 +10,6 @@ import lombok.*;
 public class LoanDto {
 
     private Double unpaidDebt;
-    private UserDto user;
+    private CustomerDto customer;
     private BookDto book;
 }

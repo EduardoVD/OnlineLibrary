@@ -7,12 +7,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDto {
+public class CustomerDto {
 
     private String name;
     private Integer phone;
     private String country;
     private String state;
     private String city;
-    private LoanDto loan;
 }
