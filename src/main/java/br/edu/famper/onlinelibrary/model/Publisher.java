@@ -22,14 +22,6 @@ public class Publisher {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "publisher",
-        targetEntity = Book.class,
-        fetch = FetchType.LAZY,
-        cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<Book> Books;
-
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @Column(name = "published_book")
+    private String publishedBook;
 }

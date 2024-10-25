@@ -1,10 +1,7 @@
 package br.edu.famper.onlinelibrary.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Set;
 
 @Entity
 @Table(name = "loan")
@@ -21,21 +18,11 @@ public class Loan {
 
     private Double unpaidDebt;
 
-    @OneToMany(mappedBy = "loan",
-    targetEntity = User.class,
-    fetch = FetchType.LAZY,
-    cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<User> users;
-
-    @OneToMany(mappedBy = "loan",
-        targetEntity = Book.class,
-        fetch = FetchType.LAZY,
-        cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<Book> Books;
+    @ManyToOne
+    @JoinColumn(name = "book_code")
+    private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "customer_code")
+    private Customer customer;
 }

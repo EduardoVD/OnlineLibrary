@@ -7,13 +7,13 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "Customer")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "code")
-public class User {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,14 +34,10 @@ public class User {
     @Column(name = "city")
     private String city;
 
-    @OneToMany(mappedBy = "user",
-        targetEntity = Loan.class,
-        fetch = FetchType.LAZY,
-        cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer",
+            targetEntity = Loan.class,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     @JsonIgnore
-    private Set<Loan> loans;
-
-    @ManyToOne
-    @JoinColumn(name = "loan_id")
-    private Loan loan;
+    private Set<Customer> customers;
 }

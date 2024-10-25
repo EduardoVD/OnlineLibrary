@@ -32,14 +32,6 @@ public class Author {
     @Column(name = "date_of_death")
     private Calendar dateOfDeath;
 
-    @OneToMany(mappedBy = "author",
-        targetEntity = Book.class,
-        fetch = FetchType.LAZY,
-        cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<Book> Books;
-
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @Column(name = "written_book")
+    private String writtenBook;
 }
