@@ -14,6 +14,5 @@ public class BookDto {
     private String title;
     private Calendar yearOfPublication;
     private Double price;
-    private AuthorDto author;
-    private PublisherDto publisher;
+    private String author;
 }

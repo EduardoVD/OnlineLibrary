@@ -15,5 +15,5 @@ public class AuthorDto {
     private String lastName;
     private Calendar dateOfBirth;
     private Calendar dateOfDeath;
-    private BookDto book;
+    private String writtenBook;
 }
