@@ -1,8 +1,6 @@
 package br.edu.famper.onlinelibrary.service;
 
-import br.edu.famper.onlinelibrary.dto.BookDto;
 import br.edu.famper.onlinelibrary.dto.CustomerDto;
-import br.edu.famper.onlinelibrary.model.Book;
 import br.edu.famper.onlinelibrary.model.Customer;
 import br.edu.famper.onlinelibrary.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
