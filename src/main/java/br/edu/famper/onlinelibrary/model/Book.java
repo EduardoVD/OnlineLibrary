@@ -1,9 +1,7 @@
 package br.edu.famper.onlinelibrary.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.Calendar;
 import java.util.Set;
 
