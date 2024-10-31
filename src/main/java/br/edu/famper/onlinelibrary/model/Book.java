@@ -1,4 +1,5 @@
 package br.edu.famper.onlinelibrary.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,6 +23,7 @@ public class Book {
     private String title;
 
     @Column(name = "year_of_publication")
+    @Temporal(TemporalType.DATE)
     private Calendar yearOfPublication;
 
     @Column(name = "price")

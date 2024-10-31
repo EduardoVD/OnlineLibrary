@@ -22,7 +22,7 @@ public class Customer {
     private String name;
 
     @Column(name = "phone")
-    private Integer phone;
+    private String phone;
 
     @Column(name = "country")
     private String country;

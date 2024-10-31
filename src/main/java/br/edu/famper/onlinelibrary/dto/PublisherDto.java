@@ -7,6 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(name = "Publisher", description = "Publisher´s Information")
 public class PublisherDto {
 
     @Schema(description = "Publisher´s Name", example = "CPB", title = "Name")

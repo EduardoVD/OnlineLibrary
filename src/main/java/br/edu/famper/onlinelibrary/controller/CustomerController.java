@@ -31,7 +31,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
     })
-    public List<CustomerDto> getAllUsers() {
+    public List<CustomerDto> getAllCustomers() {
         log.info("Searching For All Customers...");
         return customerService.getAllCustomers();
     }

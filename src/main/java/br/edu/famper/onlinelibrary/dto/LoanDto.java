@@ -7,14 +7,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(name = "Loan", description = "Loan´s Information")
 public class LoanDto {
 
-    @Schema(description = "Loan´s Unpaid Debt", example = "20,00", title = "Unpaid Debt")
+    @Schema(description = "Loan´s Unpaid Debt", example = "20.00", title = "Unpaid Debt")
     private Double unpaidDebt;
 
-    @Schema(description = "Loan´s Registered Customer", example = "Eduardo José", title = "Loan´s Customer")
     private CustomerDto customer;
 
-    @Schema(description = "Loan´s Registered Book", example = "Macbeth", title = "Book´s Customer")
     private BookDto book;
 }

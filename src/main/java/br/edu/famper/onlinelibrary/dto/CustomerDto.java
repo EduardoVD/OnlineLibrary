@@ -7,13 +7,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(name = "Customer", description = "Customer´s Information")
 public class CustomerDto {
 
     @Schema(description = "Customer´s Name", example = "Eduardo José", title = "Name")
     private String name;
 
     @Schema(description = "Customer´s Phone", example = "+55 46 9964-2134", title = "Phone")
-    private Integer phone;
+    private String phone;
 
     @Schema(description = "Customer´s Country", example = "Brazil", title = "Country")
     private String country;
