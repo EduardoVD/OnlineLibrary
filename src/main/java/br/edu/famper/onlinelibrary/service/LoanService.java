@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+//Provides an Editor´s List Formatted Like DTO...
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -28,12 +30,39 @@ public class LoanService {
                 .toList();
     }
 
-    public LoanDto getLoanById(Long id) {return null;}
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
-    public Loan saveLoan(LoanDto loanDto) {return null;}
+    public LoanDto getLoanById(Long id) {
+        Loan loan = loanRepository.findById(id).orElseThrow();
+        return new LoanDto()
+                .builder()
+                .unpaidDebt(loan.getUnpaidDebt())
+                .build();
+    }
 
-    public LoanDto updateLoan(Long id, LoanDto loanDto) {return null;}
+    public Loan saveLoan(LoanDto loanDto) {
+        Loan loan = new Loan();;
+        loan.setUnpaidDebt(loanDto.getUnpaidDebt());
+        return loanRepository.save(loan);
+    }
 
-    public boolean deleteLoan(Long id) {return false;}
+    public LoanDto updateLoan(Long id, LoanDto loanDto) {
+        Loan loan = loanRepository.findById(id).orElseThrow();
+        loan.setUnpaidDebt(loanDto.getUnpaidDebt());
+        Loan loanUpdated = loanRepository.save(loan);
+        return new LoanDto()
+                .builder()
+                .unpaidDebt(loanUpdated.getUnpaidDebt())
+                .build();
+    }
 
+    public boolean deleteLoan(Long id) {
+        try {
+            Loan loan = loanRepository.findById(id).orElseThrow();
+            loanRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

@@ -2,6 +2,8 @@ package br.edu.famper.onlinelibrary.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
+//Used For Transfer Data Between Different Parts From An Application...
+
 @Getter
 @Setter
 @AllArgsConstructor

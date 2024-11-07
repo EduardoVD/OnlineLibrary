@@ -2,6 +2,8 @@ package br.edu.famper.onlinelibrary.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+//Making The Attributes For "Publisher"...
+
 @Entity
 @Table(name = "publisher")
 @Getter

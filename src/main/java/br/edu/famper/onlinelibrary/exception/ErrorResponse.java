@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
 
+//Represent The Structure Of An Error Response In The Application...
+
 @Getter
 @Setter
 @AllArgsConstructor

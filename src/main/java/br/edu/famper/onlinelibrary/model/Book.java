@@ -1,10 +1,11 @@
 package br.edu.famper.onlinelibrary.model;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Set;
+
+//Making The Attributes For "Book"...
 
 @Entity
 @Table(name = "book")
@@ -22,9 +23,14 @@ public class Book {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "genre")
+    private String genre;
+
+    @Column(name = "number_of_pages")
+    private Integer numberOfPages;
+
     @Column(name = "year_of_publication")
-    @Temporal(TemporalType.DATE)
-    private Calendar yearOfPublication;
+    private LocalDate yearOfPublication;
 
     @Column(name = "price")
     private Double price;

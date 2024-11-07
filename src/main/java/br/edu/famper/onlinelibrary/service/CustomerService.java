@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+//Provides an Editor´s List Formatted Like DTO...
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -22,7 +24,8 @@ public class CustomerService {
                 .stream()
                 .map(customer -> CustomerDto
                         .builder()
-                        .name(customer.getName())
+                        .firstName(customer.getFirstName())
+                        .lastName(customer.getLastName())
                         .phone(customer.getPhone())
                         .country(customer.getCountry())
                         .state(customer.getState())
@@ -32,12 +35,59 @@ public class CustomerService {
                 .toList();
     }
 
-    public CustomerDto getCustomerById(Long id) {return null;}
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
-    public Customer saveCustomer(CustomerDto customerDto) {return null;}
+    public CustomerDto getCustomerById(Long id) {
+        Customer customer = customerRepository.findById(id).orElseThrow();
+        return new CustomerDto()
+                .builder()
+                .firstName(customer.getFirstName())
+                .lastName(customer.getLastName())
+                .phone(customer.getPhone())
+                .country(customer.getCountry())
+                .state(customer.getState())
+                .city(customer.getCity())
+                .build();
+    }
 
-    public CustomerDto updateCustomer(Long id, CustomerDto customerDto) {return null;}
+    public Customer saveCustomer(CustomerDto customerDto) {
+        Customer customer = new Customer();
+        customer.setFirstName(customerDto.getFirstName());
+        customer.setLastName(customerDto.getLastName());
+        customer.setPhone(customerDto.getPhone());
+        customer.setCountry(customerDto.getCountry());
+        customer.setState(customerDto.getState());
+        customer.setCity(customerDto.getCity());
+        return customerRepository.save(customer);
+    }
 
-    public boolean deleteCustomer(Long id) {return false;}
+    public CustomerDto updateCustomer(Long id, CustomerDto customerDto) {
+        Customer customer = customerRepository.findById(id).orElseThrow();
+        customer.setFirstName(customerDto.getFirstName());
+        customer.setLastName(customerDto.getLastName());
+        customer.setPhone(customerDto.getPhone());
+        customer.setCountry(customerDto.getCountry());
+        customer.setState(customerDto.getState());
+        customer.setCity(customerDto.getCity());
+        Customer customerUpdated = customerRepository.save(customer);
+        return new CustomerDto()
+                .builder()
+                .firstName(customerUpdated.getFirstName())
+                .lastName(customerUpdated.getLastName())
+                .phone(customerUpdated.getPhone())
+                .country(customerUpdated.getCountry())
+                .state(customerUpdated.getState())
+                .city(customerUpdated.getCity())
+                .build();
+    }
 
+    public boolean deleteCustomer(Long id) {
+        try {
+            Customer customer = customerRepository.findById(id).orElseThrow();
+            customerRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

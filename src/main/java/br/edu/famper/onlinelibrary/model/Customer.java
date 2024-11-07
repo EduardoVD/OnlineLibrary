@@ -2,8 +2,9 @@ package br.edu.famper.onlinelibrary.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.Set;
+
+//Making The Attributes For "Customer"...
 
 @Entity
 @Table(name = "Customer")
@@ -18,8 +19,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "phone")
     private String phone;

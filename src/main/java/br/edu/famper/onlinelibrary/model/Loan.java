@@ -2,6 +2,8 @@ package br.edu.famper.onlinelibrary.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+//Making The Attributes For "Loan"...
+
 @Entity
 @Table(name = "loan")
 @Getter
@@ -17,9 +19,13 @@ public class Loan {
 
     private Double unpaidDebt;
 
+    //Get The Book´s Code...
+
     @ManyToOne
     @JoinColumn(name = "book_code")
     private Book book;
+
+    //Get The Customer´s Code...
 
     @ManyToOne
     @JoinColumn(name = "customer_code")

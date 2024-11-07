@@ -1,10 +1,9 @@
 package br.edu.famper.onlinelibrary.model;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDate;
 
-import java.util.Calendar;
-
+//Making The Attributes For "Author"...
 
 @Entity
 @Table(name = "author")
@@ -26,12 +25,10 @@ public class Author {
     private String lastName;
 
     @Column(name = "date_of_birth")
-    @Temporal(TemporalType.DATE)
-    private Calendar dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "date_of_death")
-    @Temporal(TemporalType.DATE)
-    private Calendar dateOfDeath;
+    private LocalDate dateOfDeath;
 
     @Column(name = "written_book")
     private String writtenBook;

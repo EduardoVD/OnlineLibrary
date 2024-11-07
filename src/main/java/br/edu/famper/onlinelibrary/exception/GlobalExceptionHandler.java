@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import java.util.Date;
 
+//Setting An Global Exception´s Manipulator In The Application...
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

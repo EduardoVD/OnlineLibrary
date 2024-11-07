@@ -1,7 +1,9 @@
 package br.edu.famper.onlinelibrary.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import java.util.Calendar;
+import java.time.LocalDate;
+
+//Used For Transfer Data Between Different Parts From An Application...
 
 @Getter
 @Setter
@@ -18,11 +20,13 @@ public class AuthorDto {
     private String lastName;
 
     @Schema(description = "Author´s Date Of Birth", example = "1564-04-23", title = "Date Of Birth")
-    private Calendar dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Schema(description = "Author´s Date Of Death", example = "1616-04-23", title = "Date Of Death")
-    private Calendar dateOfDeath;
+    private LocalDate dateOfDeath;
 
     @Schema(description = "Author´s Written Book", example = "Macbeth", title = "Written Book")
     private String writtenBook;
 }
+
+
