@@ -1,8 +1,6 @@
 package br.edu.famper.onlinelibrary.controller;
-
 import br.edu.famper.onlinelibrary.dto.CustomerDto;
 import br.edu.famper.onlinelibrary.exception.ResourceNotFoundException;
-import br.edu.famper.onlinelibrary.model.Author;
 import br.edu.famper.onlinelibrary.model.Customer;
 import br.edu.famper.onlinelibrary.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;

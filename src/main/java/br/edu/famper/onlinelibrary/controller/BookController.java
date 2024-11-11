@@ -1,5 +1,4 @@
 package br.edu.famper.onlinelibrary.controller;
-import br.edu.famper.onlinelibrary.dto.AuthorDto;
 import br.edu.famper.onlinelibrary.dto.BookDto;
 import br.edu.famper.onlinelibrary.exception.ResourceNotFoundException;
 import br.edu.famper.onlinelibrary.model.Book;
