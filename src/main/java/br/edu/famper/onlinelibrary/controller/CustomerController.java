@@ -46,7 +46,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get One Customer From Database", description = "Fetches One Customer From Database And Return In JSON Object")
+    @Operation(summary = "Get One Customer From Database...", description = "Fetches One Customer From Database And Return In JSON Object...")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
@@ -57,21 +57,21 @@ public class CustomerController {
     }
 
     @PostMapping
-    @Operation(summary = "Save Customer", description = "Save Customer In Database")
+    @Operation(summary = "Save Customer...", description = "Save Customer In Database...")
     public Customer createCustomer(@RequestBody CustomerDto customerDto) throws ResourceNotFoundException {
         log.info("Registering Customer: {}", customerDto);
         return customerService.saveCustomer(customerDto);
     }
 
     @PatchMapping("/{id}")
-    @Operation(summary = "Update Customer", description = "Update Customer In Database")
+    @Operation(summary = "Update Customer...", description = "Update Customer In Database...")
     public ResponseEntity<CustomerDto> updateCustomer(@PathVariable(name = "id") Long id, @RequestBody CustomerDto customerDto) throws ResourceNotFoundException {
         log.info("Updating Customer: {}", customerDto);
         return ResponseEntity.ok().body(customerService.updateCustomer(id, customerDto));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete Customer", description = "Delete Customer In Database")
+    @Operation(summary = "Delete Customer...", description = "Delete Customer In Database...")
     public Map<String, Boolean> deleteCustomer(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Deleting Customer: {}", id);
         Map<String, Boolean> response = new HashMap<>();

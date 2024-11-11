@@ -45,7 +45,7 @@ public class PublisherController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get One Publisher From Database", description = "Fetches One Publisher From Database And Return In JSON Object")
+    @Operation(summary = "Get One Publisher From Database...", description = "Fetches One Publisher From Database And Return In JSON Object...")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
@@ -56,21 +56,21 @@ public class PublisherController {
     }
 
     @PostMapping
-    @Operation(summary = "Save Publisher", description = "Save Publisher In Database")
+    @Operation(summary = "Save Publisher...", description = "Save Publisher In Database...")
     public Publisher createPublisher(@RequestBody PublisherDto publisherDto) throws ResourceNotFoundException {
         log.info("Registering Publisher: {}", publisherDto);
         return publisherService.savePublisher(publisherDto);
     }
 
     @PatchMapping("/{id}")
-    @Operation(summary = "Update Publisher", description = "Update Publisher In Database")
+    @Operation(summary = "Update Publisher...", description = "Update Publisher In Database...")
     public ResponseEntity<PublisherDto> updatePublisher(@PathVariable(name = "id") Long id, @RequestBody PublisherDto publisherDto) throws ResourceNotFoundException {
         log.info("Updating Publisher: {}", publisherDto);
         return ResponseEntity.ok().body(publisherService.updatePublisher(id, publisherDto));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete Publisher", description = "Delete Publisher In Database")
+    @Operation(summary = "Delete Publisher...", description = "Delete Publisher In Database...")
     public Map<String, Boolean> deletePublisher(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Deleting Publisher: {}", id);
         Map<String, Boolean> response = new HashMap<>();

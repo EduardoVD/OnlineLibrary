@@ -43,7 +43,7 @@ public class LoanController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get One Loan From Database", description = "Fetches One Loan From Database And Return In JSON Object")
+    @Operation(summary = "Get One Loan From Database...", description = "Fetches One Loan From Database And Return In JSON Object...")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
@@ -54,21 +54,21 @@ public class LoanController {
     }
 
     @PostMapping
-    @Operation(summary = "Save Loan", description = "Save Loan In Database")
+    @Operation(summary = "Save Loan...", description = "Save Loan In Database...")
     public Loan createLoan(@RequestBody LoanDto loanDto) throws ResourceNotFoundException {
         log.info("Registering Loan: {}", loanDto);
         return loanService.saveLoan(loanDto);
     }
 
     @PatchMapping("/{id}")
-    @Operation(summary = "Update Loan", description = "Update Loan In Database")
+    @Operation(summary = "Update Loan...", description = "Update Loan In Database...")
     public ResponseEntity<LoanDto> updateLoan(@PathVariable(name = "id") Long id, @RequestBody LoanDto loanDto) throws ResourceNotFoundException {
         log.info("Updating Loan: {}", loanDto);
         return ResponseEntity.ok().body(loanService.updateLoan(id, loanDto));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete Loan", description = "Delete Loan In Database")
+    @Operation(summary = "Delete Loan...", description = "Delete Loan In Database...")
     public Map<String, Boolean> deleteLoan(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Deleting Loan: {}", id);
         Map<String, Boolean> response = new HashMap<>();

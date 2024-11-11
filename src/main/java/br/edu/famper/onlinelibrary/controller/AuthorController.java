@@ -43,7 +43,7 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get One Author From Database", description = "Fetches One Author From Database And Return In JSON Object")
+    @Operation(summary = "Get One Author From Database...", description = "Fetches One Author From Database And Return In JSON Object...")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
@@ -54,21 +54,21 @@ public class AuthorController {
     }
 
     @PostMapping
-    @Operation(summary = "Save Author", description = "Save Author In Database")
+    @Operation(summary = "Save Author...", description = "Save Author In Database...")
     public Author createAuthor(@RequestBody AuthorDto authorDto) throws ResourceNotFoundException {
         log.info("Registering Author: {}", authorDto);
         return authorService.saveAuthor(authorDto);
     }
 
     @PatchMapping("/{id}")
-    @Operation(summary = "Update Author", description = "Update Author In Database")
+    @Operation(summary = "Update Author...", description = "Update Author In Database...")
     public ResponseEntity<AuthorDto> updateAuthor(@PathVariable(name = "id") Long id, @RequestBody AuthorDto authorDto) throws ResourceNotFoundException {
         log.info("Updating Author: {}", authorDto);
         return ResponseEntity.ok().body(authorService.updateAuthor(id, authorDto));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete Author", description = "Delete Author In Database")
+    @Operation(summary = "Delete Author...", description = "Delete Author In Database...")
     public Map<String, Boolean> deleteAuthor(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
     log.info("Deleting Author: {}", id);
     Map<String, Boolean> response = new HashMap<>();

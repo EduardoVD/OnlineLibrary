@@ -44,7 +44,7 @@ public class BookController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get One Book From Database", description = "Fetches One Book From Database And Return In JSON Object")
+    @Operation(summary = "Get One Book From Database...", description = "Fetches One Book From Database And Return In JSON Object...")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
@@ -55,21 +55,21 @@ public class BookController {
     }
 
     @PostMapping
-    @Operation(summary = "Save Book", description = "Save Book In Database")
+    @Operation(summary = "Save Book...", description = "Save Book In Database...")
     public Book createBook(@RequestBody BookDto bookDto) throws ResourceNotFoundException {
         log.info("Registering Book: {}", bookDto);
         return bookService.saveBook(bookDto);
     }
 
     @PatchMapping("/{id}")
-    @Operation(summary = "Update Book", description = "Update Book In Database")
+    @Operation(summary = "Update Book...", description = "Update Book In Database...")
     public ResponseEntity<BookDto> updateBook(@PathVariable(name = "id") Long id, @RequestBody BookDto bookDto) throws ResourceNotFoundException {
         log.info("Updating Book: {}", bookDto);
         return ResponseEntity.ok().body(bookService.updateBook(id, bookDto));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete Book", description = "Delete Book In Database")
+    @Operation(summary = "Delete Book...", description = "Delete Book In Database...")
     public Map<String, Boolean> deleteBook(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Deleting Book: {}", id);
         Map<String, Boolean> response = new HashMap<>();
