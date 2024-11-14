@@ -1,11 +1,14 @@
 package br.edu.famper.onlinelibrary.service;
+
 import br.edu.famper.onlinelibrary.dto.LoanDto;
+import br.edu.famper.onlinelibrary.model.Book;
 import br.edu.famper.onlinelibrary.model.Loan;
 import br.edu.famper.onlinelibrary.repository.LoanRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 //Provides an Editor´s List Formatted Like DTO...
@@ -15,46 +18,37 @@ import java.util.List;
 @Slf4j
 public class LoanService {
 
+    //Correct
+
     @Autowired
     private LoanRepository loanRepository;
 
-    public List<LoanDto> getAllLoans() {
-        return loanRepository
-                .findAll()
-                .stream()
-                .map(loan -> LoanDto
-                        .builder()
-                        .unpaidDebt(loan.getUnpaidDebt())
-                        .build()
-                )
-                .toList();
+    public List<Loan> getAllLoans() {
+        return loanRepository.findAll();
     }
 
+    //Correct
     //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
-    public LoanDto getLoanById(Long id) {
-        Loan loan = loanRepository.findById(id).orElseThrow();
-        return new LoanDto()
-                .builder()
-                .unpaidDebt(loan.getUnpaidDebt())
-                .build();
+    public Loan getLoanById(Long id) {
+        return loanRepository.findById(id).orElseThrow();
     }
 
-    public Loan saveLoan(LoanDto loanDto) {
-        Loan loan = new Loan();;
-        loan.setUnpaidDebt(loanDto.getUnpaidDebt());
+    //Correct
+
+    public Loan saveLoan(Loan loan) {
         return loanRepository.save(loan);
     }
 
-    public LoanDto updateLoan(Long id, LoanDto loanDto) {
-        Loan loan = loanRepository.findById(id).orElseThrow();
-        loan.setUnpaidDebt(loanDto.getUnpaidDebt());
-        Loan loanUpdated = loanRepository.save(loan);
-        return new LoanDto()
-                .builder()
-                .unpaidDebt(loanUpdated.getUnpaidDebt())
-                .build();
+    public Loan updateLoan(Long id, Loan loan) {
+        Loan newLoan = loanRepository.findById(id).orElseThrow();
+        newLoan.setUnpaidDebt(loan.getUnpaidDebt());
+        newLoan.setCustomer(loan.getCustomer());
+        newLoan.setBook(loan.getBook());
+        return loanRepository.save(newLoan);
     }
+
+    //Correct
 
     public boolean deleteLoan(Long id) {
         try {

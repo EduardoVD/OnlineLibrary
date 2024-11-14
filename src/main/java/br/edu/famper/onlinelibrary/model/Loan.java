@@ -1,4 +1,5 @@
 package br.edu.famper.onlinelibrary.model;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +18,7 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
+    @Schema(description = "Loan´s Unpaid Debt", example = "20.50", title = "Unpaid Debt")
     private Double unpaidDebt;
 
     //Get The Book´s Code...

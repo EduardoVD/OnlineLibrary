@@ -1,5 +1,6 @@
 package br.edu.famper.onlinelibrary.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
@@ -19,6 +20,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
+    @Schema(description = "Customer´s First Name", example = "Eduardo", title = "First Name")
     @Column(name = "first_name")
     private String firstName;
 

@@ -28,6 +28,8 @@ public class LoanController {
 
     private final LoanService loanService;
 
+    //Correct
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get All Loans From Database...", description = "Fetches All Cities From Database And Return In JSON Array...")
@@ -36,10 +38,12 @@ public class LoanController {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
     })
-    public List<LoanDto> getAllLoans() {
+    public List<Loan> getAllLoans() {
         log.info("Searching For All Loans...");
         return loanService.getAllLoans();
     }
+
+    //Correct
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -48,24 +52,28 @@ public class LoanController {
             @ApiResponse(responseCode = "200", description = "Successful"),
             @ApiResponse(responseCode = "404", description = "Not Found")
     })
-    public ResponseEntity<LoanDto> getLoanById(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
+    public ResponseEntity<Loan> getLoanById(@PathVariable(name = "id") Long id) throws ResourceNotFoundException {
         log.info("Searching For Loan By Code: {}", id);
         return ResponseEntity.ok().body(loanService.getLoanById(id));
     }
 
+    //Correct
+
     @PostMapping
     @Operation(summary = "Save Loan...", description = "Save Loan In Database...")
-    public Loan createLoan(@RequestBody LoanDto loanDto) throws ResourceNotFoundException {
+    public Loan createLoan(@RequestBody Loan loanDto) throws ResourceNotFoundException {
         log.info("Registering Loan: {}", loanDto);
         return loanService.saveLoan(loanDto);
     }
 
     @PatchMapping("/{id}")
     @Operation(summary = "Update Loan...", description = "Update Loan In Database...")
-    public ResponseEntity<LoanDto> updateLoan(@PathVariable(name = "id") Long id, @RequestBody LoanDto loanDto) throws ResourceNotFoundException {
-        log.info("Updating Loan: {}", loanDto);
-        return ResponseEntity.ok().body(loanService.updateLoan(id, loanDto));
+    public ResponseEntity<Loan> updateLoan(@PathVariable(name = "id") Long id, @RequestBody Loan loan) throws ResourceNotFoundException {
+        log.info("Updating Loan: {}", loan);
+        return ResponseEntity.ok().body(loanService.updateLoan(id, loan));
     }
+
+    //Correct
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Loan...", description = "Delete Loan In Database...")
