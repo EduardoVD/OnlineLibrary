@@ -11,14 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//Provides an Editor´s List Formatted Like DTO...
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class LoanService {
 
-    //Correct
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
     @Autowired
     private LoanRepository loanRepository;
@@ -27,14 +25,9 @@ public class LoanService {
         return loanRepository.findAll();
     }
 
-    //Correct
-    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
-
     public Loan getLoanById(Long id) {
         return loanRepository.findById(id).orElseThrow();
     }
-
-    //Correct
 
     public Loan saveLoan(Loan loan) {
         return loanRepository.save(loan);
@@ -47,8 +40,6 @@ public class LoanService {
         newLoan.setBook(loan.getBook());
         return loanRepository.save(newLoan);
     }
-
-    //Correct
 
     public boolean deleteLoan(Long id) {
         try {

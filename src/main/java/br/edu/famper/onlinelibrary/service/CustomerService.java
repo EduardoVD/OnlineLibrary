@@ -15,6 +15,8 @@ import java.util.List;
 @Slf4j
 public class CustomerService {
 
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -34,8 +36,6 @@ public class CustomerService {
                 )
                 .toList();
     }
-
-    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
     public CustomerDto getCustomerById(Long id) {
         Customer customer = customerRepository.findById(id).orElseThrow();

@@ -15,6 +15,8 @@ import java.util.List;
 @Slf4j
 public class BookService {
 
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
+
     @Autowired
     private BookRepository bookRepository;
 
@@ -34,8 +36,6 @@ public class BookService {
                 )
                 .toList();
     }
-
-    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
     public BookDto getBookById(Long id) {
         Book book = bookRepository.findById(id).orElseThrow();

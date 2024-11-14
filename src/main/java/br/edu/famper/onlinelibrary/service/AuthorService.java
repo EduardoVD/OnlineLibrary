@@ -15,6 +15,8 @@ import java.util.List;
 @Slf4j
 public class AuthorService {
 
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
+
     @Autowired
     private AuthorRepository authorRepository;
 
@@ -33,8 +35,6 @@ public class AuthorService {
                 )
                 .toList();
     }
-
-    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
     public AuthorDto getAuthorById(Long id) {
         Author author = authorRepository.findById(id).orElseThrow();

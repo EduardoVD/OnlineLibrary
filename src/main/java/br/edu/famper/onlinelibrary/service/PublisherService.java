@@ -15,6 +15,8 @@ import java.util.List;
 @Slf4j
 public class PublisherService {
 
+    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
+
     @Autowired
     private PublisherRepository publisherRepository;
 
@@ -30,8 +32,6 @@ public class PublisherService {
                 )
                 .toList();
     }
-
-    //Using The Methods Like: "Get", "Save", "Update" And "Delete"...
 
     public PublisherDto getPublisherById(Long id) {
         Publisher publisher = publisherRepository.findById(id).orElseThrow();
