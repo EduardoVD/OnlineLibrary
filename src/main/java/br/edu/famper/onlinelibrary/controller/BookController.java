@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +27,8 @@ public class BookController {
 
     private final BookService bookService;
 
+    //Operation For Get All Books From Database...
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get All Books From Database...", description = "Fetches All Books From Database And Return In JSON Array...")
@@ -41,6 +42,8 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    //Operation To Get One Book From Database...
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get One Book From Database...", description = "Fetches One Book From Database And Return In JSON Object...")
@@ -53,6 +56,8 @@ public class BookController {
         return ResponseEntity.ok().body(bookService.getBookById(id));
     }
 
+    //Operation For Add An New Book...
+
     @PostMapping
     @Operation(summary = "Save Book...", description = "Save Book In Database...")
     public Book createBook(@RequestBody BookDto bookDto) throws ResourceNotFoundException {
@@ -60,12 +65,16 @@ public class BookController {
         return bookService.saveBook(bookDto);
     }
 
+    //Operation For Update An Book From Database...
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update Book...", description = "Update Book In Database...")
     public ResponseEntity<BookDto> updateBook(@PathVariable(name = "id") Long id, @RequestBody BookDto bookDto) throws ResourceNotFoundException {
         log.info("Updating Book: {}", bookDto);
         return ResponseEntity.ok().body(bookService.updateBook(id, bookDto));
     }
+
+    //Operation For Delete One Book From Database...
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Book...", description = "Delete Book In Database...")

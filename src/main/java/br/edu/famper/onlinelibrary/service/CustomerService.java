@@ -20,6 +20,8 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    //Method For Get All Customers From Database...
+
     public List<CustomerDto> getAllCustomers() {
         return customerRepository
                 .findAll()
@@ -37,6 +39,8 @@ public class CustomerService {
                 .toList();
     }
 
+    //Method To Get One Customer From Database...
+
     public CustomerDto getCustomerById(Long id) {
         Customer customer = customerRepository.findById(id).orElseThrow();
         return new CustomerDto()
@@ -50,6 +54,8 @@ public class CustomerService {
                 .build();
     }
 
+    //Method For Add An New Customer...
+
     public Customer saveCustomer(CustomerDto customerDto) {
         Customer customer = new Customer();
         customer.setFirstName(customerDto.getFirstName());
@@ -60,6 +66,8 @@ public class CustomerService {
         customer.setCity(customerDto.getCity());
         return customerRepository.save(customer);
     }
+
+    //Method For Update An Customer From Database...
 
     public CustomerDto updateCustomer(Long id, CustomerDto customerDto) {
         Customer customer = customerRepository.findById(id).orElseThrow();
@@ -80,6 +88,8 @@ public class CustomerService {
                 .city(customerUpdated.getCity())
                 .build();
     }
+
+    //Method For Delete One Customer From Database...
 
     public boolean deleteCustomer(Long id) {
         try {

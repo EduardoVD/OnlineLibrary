@@ -1,5 +1,4 @@
 package br.edu.famper.onlinelibrary.controller;
-import br.edu.famper.onlinelibrary.dto.LoanDto;
 import br.edu.famper.onlinelibrary.exception.ResourceNotFoundException;
 import br.edu.famper.onlinelibrary.model.Loan;
 import br.edu.famper.onlinelibrary.service.LoanService;
@@ -12,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +26,7 @@ public class LoanController {
 
     private final LoanService loanService;
 
-    //Correct
+    //Operation For Get All Loans From Database...
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -43,7 +41,7 @@ public class LoanController {
         return loanService.getAllLoans();
     }
 
-    //Correct
+    //Operation To Get One Loan From Database...
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -57,7 +55,7 @@ public class LoanController {
         return ResponseEntity.ok().body(loanService.getLoanById(id));
     }
 
-    //Correct
+    //Operation For Add An New Loan...
 
     @PostMapping
     @Operation(summary = "Save Loan...", description = "Save Loan In Database...")
@@ -66,6 +64,8 @@ public class LoanController {
         return loanService.saveLoan(loanDto);
     }
 
+    //Operation For Update An Loan From Database...
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update Loan...", description = "Update Loan In Database...")
     public ResponseEntity<Loan> updateLoan(@PathVariable(name = "id") Long id, @RequestBody Loan loan) throws ResourceNotFoundException {
@@ -73,7 +73,7 @@ public class LoanController {
         return ResponseEntity.ok().body(loanService.updateLoan(id, loan));
     }
 
-    //Correct
+    //Operation For Delete One Loan From Database...
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Loan...", description = "Delete Loan In Database...")

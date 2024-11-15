@@ -12,9 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +27,8 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
+    //Operation For Get All Customers From Database...
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get All Customers From Database...", description = "Fetches All Customers From Database And Return In JSON Array...")
@@ -42,6 +42,8 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
+    //Operation To Get One Customer From Database...
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get One Customer From Database...", description = "Fetches One Customer From Database And Return In JSON Object...")
@@ -54,6 +56,8 @@ public class CustomerController {
         return ResponseEntity.ok().body(customerService.getCustomerById(id));
     }
 
+    //Operation For Add An New Customer...
+
     @PostMapping
     @Operation(summary = "Save Customer...", description = "Save Customer In Database...")
     public Customer createCustomer(@RequestBody CustomerDto customerDto) throws ResourceNotFoundException {
@@ -61,12 +65,16 @@ public class CustomerController {
         return customerService.saveCustomer(customerDto);
     }
 
+    //Operation For Update An Customer From Database...
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update Customer...", description = "Update Customer In Database...")
     public ResponseEntity<CustomerDto> updateCustomer(@PathVariable(name = "id") Long id, @RequestBody CustomerDto customerDto) throws ResourceNotFoundException {
         log.info("Updating Customer: {}", customerDto);
         return ResponseEntity.ok().body(customerService.updateCustomer(id, customerDto));
     }
+
+    //Operation For Delete One Customer From Database...
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Customer...", description = "Delete Customer In Database...")

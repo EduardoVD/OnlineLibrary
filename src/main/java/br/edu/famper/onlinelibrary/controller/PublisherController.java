@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +28,8 @@ public class PublisherController {
 
     private final PublisherService publisherService;
 
+    //Operation For Get All Publishers From Database...
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get All Publishers From Database...", description = "Fetches All Publishers From Database And Return In JSON Array...")
@@ -42,6 +43,8 @@ public class PublisherController {
         return publisherService.getAllPublishers();
     }
 
+    //Operation To Get One Publisher From Database...
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get One Publisher From Database...", description = "Fetches One Publisher From Database And Return In JSON Object...")
@@ -54,6 +57,8 @@ public class PublisherController {
         return ResponseEntity.ok().body(publisherService.getPublisherById(id));
     }
 
+    //Operation For Add An New Publisher...
+
     @PostMapping
     @Operation(summary = "Save Publisher...", description = "Save Publisher In Database...")
     public Publisher createPublisher(@RequestBody PublisherDto publisherDto) throws ResourceNotFoundException {
@@ -61,12 +66,16 @@ public class PublisherController {
         return publisherService.savePublisher(publisherDto);
     }
 
+    //Operation For Update An Publisher From Database...
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update Publisher...", description = "Update Publisher In Database...")
     public ResponseEntity<PublisherDto> updatePublisher(@PathVariable(name = "id") Long id, @RequestBody PublisherDto publisherDto) throws ResourceNotFoundException {
         log.info("Updating Publisher: {}", publisherDto);
         return ResponseEntity.ok().body(publisherService.updatePublisher(id, publisherDto));
     }
+
+    //Operation For Delete One Publisher From Database...
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Publisher...", description = "Delete Publisher In Database...")

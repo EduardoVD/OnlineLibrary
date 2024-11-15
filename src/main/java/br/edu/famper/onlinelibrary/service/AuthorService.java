@@ -20,6 +20,8 @@ public class AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
+    //Method For Get All Authors From Database...
+
     public List<AuthorDto> getAllAuthors() {
         return authorRepository
                 .findAll()
@@ -36,6 +38,8 @@ public class AuthorService {
                 .toList();
     }
 
+    //Method To Get One Author From Database...
+
     public AuthorDto getAuthorById(Long id) {
         Author author = authorRepository.findById(id).orElseThrow();
         return new AuthorDto()
@@ -48,6 +52,8 @@ public class AuthorService {
                 .build();
     }
 
+    //Method For Add An New Author...
+
     public Author saveAuthor(AuthorDto authorDto) {
         Author author = new Author();
         author.setFirstName(authorDto.getFirstName());
@@ -57,6 +63,8 @@ public class AuthorService {
         author.setWrittenBook(authorDto.getWrittenBook());
         return authorRepository.save(author);
     }
+
+    //Method For Update An Author From Database...
 
     public AuthorDto updateAuthor(Long id, AuthorDto authorDto) {
         Author author = authorRepository.findById(id).orElseThrow();
@@ -75,6 +83,8 @@ public class AuthorService {
                 .writtenBook(authorUpdated.getWrittenBook())
                 .build();
     }
+
+    //Method For Delete One Author From Database...
 
     public boolean deleteAuthor(Long id) {
         try {

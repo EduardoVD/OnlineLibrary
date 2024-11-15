@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +27,8 @@ public class AuthorController {
 
     private final AuthorService authorService;
 
+    //Operation For Get All Authors From Database...
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get All Authors From Database...", description = "Fetches All Authors From Database And Return In JSON Array...")
@@ -41,6 +42,8 @@ public class AuthorController {
         return authorService.getAllAuthors();
     }
 
+    //Operation To Get One Author From Database...
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get One Author From Database...", description = "Fetches One Author From Database And Return In JSON Object...")
@@ -53,6 +56,8 @@ public class AuthorController {
         return ResponseEntity.ok().body(authorService.getAuthorById(id));
     }
 
+    //Operation For Add An New Author...
+
     @PostMapping
     @Operation(summary = "Save Author...", description = "Save Author In Database...")
     public Author createAuthor(@RequestBody AuthorDto authorDto) throws ResourceNotFoundException {
@@ -60,12 +65,16 @@ public class AuthorController {
         return authorService.saveAuthor(authorDto);
     }
 
+    //Operation For Update An Author From Database...
+
     @PatchMapping("/{id}")
     @Operation(summary = "Update Author...", description = "Update Author In Database...")
     public ResponseEntity<AuthorDto> updateAuthor(@PathVariable(name = "id") Long id, @RequestBody AuthorDto authorDto) throws ResourceNotFoundException {
         log.info("Updating Author: {}", authorDto);
         return ResponseEntity.ok().body(authorService.updateAuthor(id, authorDto));
     }
+
+    //Operation For Delete One Author From Database...
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete Author...", description = "Delete Author In Database...")

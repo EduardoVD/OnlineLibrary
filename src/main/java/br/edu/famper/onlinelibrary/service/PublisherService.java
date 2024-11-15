@@ -20,6 +20,8 @@ public class PublisherService {
     @Autowired
     private PublisherRepository publisherRepository;
 
+    //Method For Get All Publishers From Database...
+
     public List<PublisherDto> getAllPublishers() {
         return publisherRepository
                 .findAll()
@@ -33,6 +35,8 @@ public class PublisherService {
                 .toList();
     }
 
+    //Method To Get One Publisher From Database...
+
     public PublisherDto getPublisherById(Long id) {
         Publisher publisher = publisherRepository.findById(id).orElseThrow();
         return new PublisherDto()
@@ -42,12 +46,16 @@ public class PublisherService {
                 .build();
     }
 
+    //Method For Add An New Publisher...
+
     public Publisher savePublisher(PublisherDto publisherDto) {
         Publisher publisher = new Publisher();
         publisher.setName(publisherDto.getName());
         publisher.setPublishedBook(publisherDto.getPublishedBook());
         return publisherRepository.save(publisher);
     }
+
+    //Method For Update An Publisher From Database...
 
     public PublisherDto updatePublisher(Long id, PublisherDto publisherDto) {
         Publisher publisher = publisherRepository.findById(id).orElseThrow();
@@ -56,10 +64,12 @@ public class PublisherService {
         Publisher publisherUpdated = publisherRepository.save(publisher);
         return new PublisherDto()
                 .builder()
-                .name(publisher.getName())
-                .publishedBook(publisher.getPublishedBook())
+                .name(publisherUpdated.getName())
+                .publishedBook(publisherUpdated.getPublishedBook())
                 .build();
     }
+
+    //Method For Delete One Publisher From Database...
 
     public boolean deletePublisher(Long id) {
         try {

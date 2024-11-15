@@ -12,8 +12,12 @@ import lombok.*;
 @Schema(name = "Publisher", description = "Publisher´s Information")
 public class PublisherDto {
 
+    //Adding Title, Description And Example For "Name" To An Better Understanding In Swagger...
+
     @Schema(description = "Publisher´s Name", example = "CPB", title = "Name")
     private String name;
+
+    //Adding Title, Description And Example For "Published Book" To An Better Understanding In Swagger...
 
     @Schema(description = "Publisher´s Published Book", example = "Macbeth", title = "Published Book")
     private String publishedBook;

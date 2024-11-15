@@ -1,7 +1,4 @@
 package br.edu.famper.onlinelibrary.service;
-
-import br.edu.famper.onlinelibrary.dto.LoanDto;
-import br.edu.famper.onlinelibrary.model.Book;
 import br.edu.famper.onlinelibrary.model.Loan;
 import br.edu.famper.onlinelibrary.repository.LoanRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,17 +18,25 @@ public class LoanService {
     @Autowired
     private LoanRepository loanRepository;
 
+    //Method For Get All Loans From Database...
+
     public List<Loan> getAllLoans() {
         return loanRepository.findAll();
     }
+
+    //Method To Get One Loan From Database...
 
     public Loan getLoanById(Long id) {
         return loanRepository.findById(id).orElseThrow();
     }
 
+    //Method For Add An New Loan...
+
     public Loan saveLoan(Loan loan) {
         return loanRepository.save(loan);
     }
+
+    //Method For Update An Loan From Database...
 
     public Loan updateLoan(Long id, Loan loan) {
         Loan newLoan = loanRepository.findById(id).orElseThrow();
@@ -40,6 +45,8 @@ public class LoanService {
         newLoan.setBook(loan.getBook());
         return loanRepository.save(newLoan);
     }
+
+    //Method For Delete One Loan From Database...
 
     public boolean deleteLoan(Long id) {
         try {

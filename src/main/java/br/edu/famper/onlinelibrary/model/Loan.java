@@ -14,9 +14,13 @@ import lombok.*;
 @EqualsAndHashCode(of = "code")
 public class Loan {
 
+    //Attribute "Code" For The Class "Loan"...
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
+
+    //Attribute "Unpaid Debt" For The Class "Loan"...
 
     @Schema(description = "Loan´s Unpaid Debt", example = "20.50", title = "Unpaid Debt")
     private Double unpaidDebt;

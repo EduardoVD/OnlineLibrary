@@ -13,12 +13,18 @@ import lombok.*;
 @EqualsAndHashCode(of = "code")
 public class Publisher {
 
+    //Attribute "Code" For The Class "Publisher"...
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long code;
 
+    //Attribute "Name" For The Class "Publisher"...
+
     @Column(name = "name")
     private String name;
+
+    //Attribute "Published Book" For The Class "Publisher"...
 
     @Column(name = "published_book")
     private String publishedBook;
