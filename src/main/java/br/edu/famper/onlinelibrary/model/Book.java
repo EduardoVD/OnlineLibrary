@@ -21,6 +21,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Schema(hidden = true)
     private Long code;
 
     //Attribute "Title" For The Class "Book"...

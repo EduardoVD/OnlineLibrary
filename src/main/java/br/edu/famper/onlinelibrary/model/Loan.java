@@ -18,6 +18,7 @@ public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Schema(hidden = true)
     private Long code;
 
     //Attribute "Unpaid Debt" For The Class "Loan"...

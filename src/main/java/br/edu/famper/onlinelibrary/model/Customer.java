@@ -20,6 +20,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Schema(hidden = true)
     private Long code;
 
     //Attribute "First Name" For The Class "Customer"...
