@@ -1,4 +1,4 @@
-Warning: TThe PDF in Classroom is in Portuguese for better understanding. In addition, a large part of this translation was done by Google Translate!
+*Warning*: The PDF in Classroom is in Portuguese for better understanding. In addition, a large part of this translation was done by Google Translate!
 
 Project – Online Library
 
