@@ -1,6 +1,6 @@
 *Warning*: The PDF in Classroom is in Portuguese for better understanding. In addition, a large part of this translation was done by Google Translate!
 
-Project – Online Library
+*Project – Online Library*
 
 This project’s main objective was to create a REST API using Spring Boot and a PostgreSQL Database. The project has five entities, both related to the chosen theme: Online Library. The system followed the best practices for development, applying solid concepts of data modeling, object-relational mapping and structure for REST Endpoint.
 The system uses Spring Boot to implement the Online Library, as well as PostgreSQL to store the data. It has the “Model-View-Controller” pattern as its architecture.
